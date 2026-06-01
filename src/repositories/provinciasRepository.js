@@ -1,4 +1,4 @@
-import DBConfig from './../configs/dbConfig.js';
+import DBConfig from './../configs/db-config.js';
 import pkg from 'pg'
 const { Client, Pool } = pkg;
 export default class ProvinceRepository {
@@ -7,7 +7,7 @@ export default class ProvinceRepository {
         const client = new Client(DBConfig);
         try {
             await client.connect();
-            const sql = 'SELECT * FROM provinces';
+            const sql = 'SELECT * FROM Provincias';
             const result = await client.query(sql);
             await client.end();
             returnArray = result.rows;
@@ -21,7 +21,7 @@ export default class ProvinceRepository {
         const client = new Client(DBConfig);
         try {
             await client.connect();
-            const sql = 'SELECT * FROM provinces WHERE id = $1';
+            const sql = 'SELECT * FROM Provincias WHERE id = $1';
             const result = await client.query(sql, [id]);
             await client.end();
             returnArray = result.rows;
@@ -38,7 +38,7 @@ export default class ProvinceRepository {
             await client.connect();
 
             const sql = `
-            INSERT INTO provinces
+            INSERT INTO Provincias
             (name, full_name, latitude, longitude, display_order)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING *
@@ -72,7 +72,7 @@ export default class ProvinceRepository {
             await client.connect();
 
             const sql = `
-            UPDATE provinces
+            UPDATE Provincias
             SET
                 name = $1,
                 full_name = $2,
@@ -111,7 +111,7 @@ export default class ProvinceRepository {
         try {
             await client.connect();
 
-            const sql = 'DELETE FROM provinces WHERE id = $1';
+            const sql = 'DELETE FROM Provincias WHERE id = $1';
 
             const result = await client.query(sql, [id]);
 

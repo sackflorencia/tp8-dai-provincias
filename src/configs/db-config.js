@@ -1,6 +1,6 @@
 const DBConfig = {
     host        : 'localhost',
-    database    : 'postgress',
+    database    : 'postgres',
     user        : 'postgres',
     password    : 'root',
     port        : 5432
