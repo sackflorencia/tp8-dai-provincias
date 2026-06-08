@@ -1,6 +1,6 @@
 import DBConfig from './../configs/db-config.js';
 import pkg from 'pg'
-const { Client, Pool } = pkg;
+const { Client } = pkg;
 export default class ProvinceRepository {
     getAllAsync = async () => {
         let returnArray = null;
@@ -24,7 +24,7 @@ export default class ProvinceRepository {
             const sql = 'SELECT * FROM Provincias WHERE id = $1';
             const result = await client.query(sql, [id]);
             await client.end();
-            returnArray = result.rows;
+            returnEntity = result.rows;
         } catch (error) {
             console.log(error);
         }
