@@ -140,7 +140,7 @@ Los endpoints fueron probados directamente desde Swagger UI para verificar el fu
 Las capturas de las pruebas se encuentran en la carpeta `docs/`:
 
 #### Vista general de todos los endpoints documentados.
-![GET todas las provincias](./docs/get-all.png) 
+![Todos los endpoints](./docs/all-endpoints.png)
 
 
 #### Prueba del `GET /api/province/`, incluyendo request y response.
