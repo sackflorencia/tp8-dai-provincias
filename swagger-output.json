@@ -1,0 +1,245 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TP08 - PG Provincias",
+    "description": "Documentación del TP08 - PG Provincia",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Provincias"
+        ],
+        "description": "Obtiene todas las provincias.",
+        "responses": {
+          "200": {
+            "description": "Lista de provincias obtenida correctamente."
+          },
+          "500": {
+            "description": "Error interno del servidor."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Provincias"
+        ],
+        "description": "Crea una nueva provincia.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Buenos Aires"
+                },
+                "full_name": {
+                  "type": "string",
+                  "example": "Provincia de Buenos Aires"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Provincia creada correctamente."
+          },
+          "400": {
+            "description": "El nombre o el nombre completo son obligatorios."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Provincias"
+        ],
+        "description": "Actualiza una provincia existente.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Buenos Aires"
+                },
+                "full_name": {
+                  "type": "string",
+                  "example": "Provincia de Buenos Aires"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provincia actualizada correctamente."
+          },
+          "404": {
+            "description": "Provincia no encontrada."
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "tags": [
+          "Provincias"
+        ],
+        "description": "Obtiene una provincia a partir de su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID de la provincia."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provincia encontrada correctamente."
+          },
+          "404": {
+            "description": "Provincia no encontrada."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Provincias"
+        ],
+        "description": "Elimina una provincia a partir de su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID de la provincia que se desea eliminar."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provincia eliminada correctamente."
+          },
+          "404": {
+            "description": "Provincia no encontrada."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Provincia": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Identificador de la provincia."
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre de la provincia."
+                }
+              }
+            },
+            "full_name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Nombre completo de la provincia."
+                }
+              }
+            },
+            "latitude": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Latitud de la provincia."
+                }
+              }
+            },
+            "longitude": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Longitud de la provincia."
+                }
+              }
+            },
+            "display_order": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Orden de visualización de la provincia."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
